@@ -6,9 +6,9 @@ AMSI stands for "Antimalware Scan Interface." This script essentially smashes th
 
 🔊 suggested background music for the reading:
 
-![image](https://user-images.githubusercontent.com/65976929/214910196-fadfef39-1b42-4256-8861-b710be578d43.png)
+![IMG_20230129_113434](https://user-images.githubusercontent.com/65976929/215320680-a39986d9-33f8-486f-8447-7bfdbf5a9166.jpg)
 
-https://youtu.be/s5UCdBh43RI?t=1
+https://youtu.be/QQYyJhuwPwI?t=1
 
 **Fast Recap of what exactly AMSI is:**
 ---
