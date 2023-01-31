@@ -100,7 +100,7 @@ But let's take a look about Powershell Operational logs (Microsoft-Windows-Power
 ![VirtualProtect_0x40](https://user-images.githubusercontent.com/65976929/215766955-2d68cd9b-4622-4a37-9e7e-a845c58782fb.png)
 
 as we can observed, on the VirtualProtect function is passed the "0x40" paremeters as memory protection constant.
-VirtualProtect function is used to changes protection on a memory region. 
+VirtualProtect function is used to changes protection on a memory region. First parameters correspond to the lpAddress of $Address (AmsiScanBuffer). Int "5" as the size of the region whose access protection attributes are to be changed, in bytes. And $p (=0).
 
 ![VirtualProtect funciton](https://user-images.githubusercontent.com/65976929/215767510-cbdb8e29-e09e-40a7-9d49-7723917697d1.png)
 
