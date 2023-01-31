@@ -97,10 +97,32 @@ But let's take a look about Powershell Operational logs (Microsoft-Windows-Power
 
 ![image](https://user-images.githubusercontent.com/65976929/214823764-32f86795-01a6-4404-b2bc-671a67f3eeb3.png)
 
-![image](https://user-images.githubusercontent.com/65976929/214823947-7b987daa-d834-4aee-aebe-755cacb0d065.png)
+![VirtualProtect_0x40](https://user-images.githubusercontent.com/65976929/215766955-2d68cd9b-4622-4a37-9e7e-a845c58782fb.png)
 
-As we can see, filtering by EventID 4104 we had some info to correlate in order to detect this kind of technique and proceed with the hunt.
-To enable script block logging, go to the Windows PowerShell GPO settings and set Turn on PowerShell Script Block Logging to enabled.
+as we can observed, on the VirtualProtect function is passed the "0x40" paremeters as memory protection constant.
+VirtualProtect function is used to changes protection on a memory region. 
+
+![VirtualProtect funciton](https://user-images.githubusercontent.com/65976929/215767510-cbdb8e29-e09e-40a7-9d49-7723917697d1.png)
+
+Third parameters corresponds to the flNewProtect, the memory protection option that is setted to PAGE_EXECUTE_READWRITE
+
+![Constants_Variables](https://user-images.githubusercontent.com/65976929/215768580-863a10b1-7dd7-4aae-9d15-bd6bf21078f8.png)
+
+Another observed evidence is related the copy() function:
+
+![System Runtime InteropServices Marshal](https://user-images.githubusercontent.com/65976929/215769042-18012f7c-e0e0-4f7c-9d25-14eedb8a7056.png)
+
+Setted parameters are: Copy(source, startIndex, IntPtr destination, lenght)
+
+![image](https://user-images.githubusercontent.com/65976929/215770500-c953072e-9651-4cf0-960c-46ba9d8327e5.png)
+
+as "source" parameters is set $Patch, 
+"0" Int as startIndex (begin here), 
+pointer to AmsiScanBuffer address as the "IntPtr destination",
+Int "6" as "lenght" parameters that exactly correspond to byte numbers of the $Patch.
+
+Filtering on EventViewer by EventID 4104 we had some info to correlate in order to detect this kind of technique and proceed with the hunt.
+This log is enabled by default, if not, to enable script block logging, go to the Windows PowerShell GPO settings and set Turn on PowerShell Script Block Logging to enabled.
 Alternately, you can set the following registry value: "HKLM\SOFTWARE\Wow6432Node\Policies\Microsoft\Windows\PowerShell\ScriptBlockLogging → EnableScriptBlockLogging = 1" (https://docs.splunk.com/Documentation/UBA/5.1.0.1/GetDataIn/AddPowerShell#:~:text=To%20enable%20script%20block%20logging,Script%20Block%20Logging%20to%20enabled.&text=In%20addition%2C%20turn%20on%20command%20line%20process%20auditing.)
 
 ---
