@@ -33,7 +33,7 @@ AmsiScanString later calls AmsiScanBuffer underneath.
 ![image](https://user-images.githubusercontent.com/65976929/214708528-27b34a1b-73fc-48dc-9264-099b0ee51fed.png)
 
 ---
-ok, now we understand that (maybe) we can patch this API call in order to break something and run whatever we want.
+ok, now we understand that we can patch this API call in order to break something and run whatever we want.
 
 ![image](https://user-images.githubusercontent.com/65976929/214709073-5bf5ed8e-e3d9-4107-b8bb-314112627cbb.png)
 
@@ -140,7 +140,6 @@ PowerShellOperational
 | where parse_json(Parameters)[1].Log == "3APICalls"
 | where 1APICalls = "LoadLibrary" and 2APICalls = "GetProcAddress" and 3APICalls = "VirtualProtect" 
   
-
 ______________________________________________________________________________________________________________________________________
 
 Steps for the Purple Test:
@@ -158,5 +157,13 @@ There are several ways to do AMSI bypass, the repo may be updated with the other
 Credits: @C2melBoyz, @dazzyddos, @pentest_swissky and @_rastamouse.
 
 ![image](https://user-images.githubusercontent.com/65976929/214842518-b8a1d783-7e52-4a8c-9fa5-e781afedd7d8.png)
+
+---
+
+what's next? another AMSI bypass explained with a detection point of view! let's keep reading.
+
+
+
+
 
 
