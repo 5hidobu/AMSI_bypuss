@@ -149,8 +149,8 @@ Steps for the Purple Test:
 
 ---
 
-This repo is intended as an overview of AMSI bypass with API patching and technique detection.
-There are several ways to do AMSI bypass, the repo may be updated with the other techniques.
+This repo is intended as an overview of AMSI bypass with API patching and detection techniques.
+There are several ways to do AMSI bypass, the repo may be updated with the other techniques. (update: keep reading!)
 
 ---
 
