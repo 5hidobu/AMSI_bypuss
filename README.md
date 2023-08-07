@@ -160,11 +160,11 @@ Credits: @C2melBoyz, @dazzyddos, @pentest_swissky and @_rastamouse.
 
 ---
 
-what's next? another AMSI bypass explained with a detection pov! let's keep reading.
+what's next? another AMSI bypass explained with a detection pov! let's keep reading here > https://github.com/5hidobu/AMSI_bypuss_0x2/blob/main/Readme.md .
 
 ![Screxcvbncvbnenshot_1](https://github.com/5hidobu/AMSI_bypuss/assets/65976929/9b29cb77-bed2-4633-b966-a4c7439c9a4e)
 
-🔊 suggested background if the previous song was boring/ended:
+see ya!
 
 
 
